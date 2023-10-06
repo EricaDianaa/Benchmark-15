@@ -1,0 +1,41 @@
+﻿@using Benchmark_15.Models
+@{
+    ViewBag.Title = "SelectPrenotazione";
+}
+
+<h2>SelectPrenotazione</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    @foreach (Prenotazione c in Model)
+    {
+        <tbody>
+            <tr>
+                <td>@c.Descrizione</td>
+                <td>@c.Tipologia</td>
+                @*<td>@c.Nome</td>
+                <td>@c.Cognome</td>*@
+                <td>@c.IdPrenotazione</td>
+                <td>@c.DataPrenotazione</td>
+                <td>@c.Anno</td>
+                <td>@c.Dal</td>
+                <td>@c.Al</td>
+                <td>@c.Caparra</td>
+                <td>@c.Tariffa</td>
+                <td>@c.MezzaPensione</td>
+                <td>@c.PensioneCompleta</td>
+                <td>@c.PrimaColazione</td>
+                <td><a href="EditPrenotazioni?Id=@c.IdPrenotazione">Modifica</a></td>
+            </tr>
+
+        </tbody>
+    }
+</table>

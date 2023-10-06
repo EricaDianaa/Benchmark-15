@@ -1,0 +1,35 @@
+﻿@using Benchmark_15.Models
+@{
+    ViewBag.Title = "SelectClienti";
+}
+
+<h2>SelectClienti</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    @foreach (Clienti c in Model)
+    {
+        <tbody>
+            <tr>
+                <td>@c.IdCliente</td>
+                <td>@c.Nome</td>
+                <td>@c.Cognome</td>
+                <td>@c.Città</td>
+                <td>@c.Provincia</td>
+                <td>@c.CodiceFiscale</td>
+                <td>@c.Telefono</td>
+                <td>@c.Cellulare</td>
+                <td>@c.Email</td>
+                <td><a href="EditCliente?Id=@c.IdCliente">Modifica</a></td>
+            </tr>
+
+        </tbody>
+    }
+</table>

@@ -1,0 +1,29 @@
+﻿@using Benchmark_15.Models
+@{
+    ViewBag.Title = "SelectCamere";
+}
+
+<h2>SelectCamere</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    @foreach (Camere c in Model)
+    {
+        <tbody>
+            <tr>
+                <td>@c.IdCamera</td>
+                <td>@c.Descrizione</td>
+                <td>@c.Tipologia</td>
+                <td><a href="EditCamera?Id=@c.IdCamera">content</a></td>
+            </tr>
+
+        </tbody>
+    }
+</table>
