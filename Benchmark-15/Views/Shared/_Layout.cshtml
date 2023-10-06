@@ -21,11 +21,12 @@
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Prenotazioni", "CreatePrenotazione", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Clienti", "CreateCliente", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Camere", "CreateCamera", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Servizi Aggiuntivi", "CreateServizi", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Prenotazioni", "SelectPrenotazione", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Clienti", "SelectClienti", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Camere", "SelectCamere", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Servizi Aggiuntivi", "SelectServizi", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
                         <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+
                     </ul>
                 </div>
             </div>

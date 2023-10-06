@@ -8,10 +8,11 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Numero Camera</th>
+            <th scope="col">Descrizione</th>
+            <th scope="col">Tipologia</th>
+            <th scope="col">Nome</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     @foreach (Camere c in Model)
@@ -21,9 +22,11 @@
                 <td>@c.IdCamera</td>
                 <td>@c.Descrizione</td>
                 <td>@c.Tipologia</td>
-                <td><a href="EditCamera?Id=@c.IdCamera">content</a></td>
+                <td>@c.NomeCamera</td>   
+                <td><a href="EditCamera?Id=@c.IdCamera">Modifica</a></td>
             </tr>
 
         </tbody>
     }
 </table>
+<a href="CreateCamera">Aggiungi camera</a>

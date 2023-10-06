@@ -9,21 +9,31 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th>IdPrenotazione</th>
+            <th scope="col">Descrizione</th>
+            <th scope="col">Tipologia</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Cognome</th>
+            <th>DataPrenotazione</th>
+            <th>Anno</th>
+            <th>Dal</th>
+            <th>Al</th>
+            <th>Caparra</th>
+            <th>Tariffa</th>
+            <th>MezzaPensione</th>
+            <th>PensioneCompleta</th>
+            <th>PrimaColazione</th>
         </tr>
     </thead>
     @foreach (Prenotazione c in Model)
     {
         <tbody>
             <tr>
+                <td>@c.IdPrenotazione</td>
                 <td>@c.Descrizione</td>
                 <td>@c.Tipologia</td>
-                @*<td>@c.Nome</td>
-                <td>@c.Cognome</td>*@
-                <td>@c.IdPrenotazione</td>
+                <td>@c.Nome</td>
+                <td>@c.Cognome</td>
                 <td>@c.DataPrenotazione</td>
                 <td>@c.Anno</td>
                 <td>@c.Dal</td>
@@ -39,3 +49,5 @@
         </tbody>
     }
 </table>
+
+<a href="CreatePrenotazione">Aggiungi prenotazione</a>

@@ -123,13 +123,14 @@ namespace Benchmark_15.Models
             SqlDataReader sqlreader1;
             conn.Open();
             sqlreader1 = cmd1.ExecuteReader();
-            Camere c = new Camere();
+        
             while (sqlreader1.Read())
             {
-                
+                    Camere c = new Camere();
                 c.IdCamera =Convert.ToInt16(sqlreader1["IdCamera"]);
                 c.Descrizione =  sqlreader1["Descrizione"].ToString();
                 c.Tipologia = sqlreader1["Tipologia"].ToString();
+                c.NomeCamera = sqlreader1["Nome"].ToString();
                 ListCamere.Add(c);
 
 
@@ -145,7 +146,7 @@ namespace Benchmark_15.Models
             sped = SelectCamera();
             foreach (Camere item in sped)
             {
-                SelectListItem l = new SelectListItem { Text = item.Descrizione, Value = item.IdCamera.ToString() };
+                SelectListItem l = new SelectListItem { Text = item.NomeCamera, Value = item.IdCamera.ToString() };
                 DropdownCamere.Add(l);
             }
         }
@@ -185,6 +186,7 @@ namespace Benchmark_15.Models
 
 
             }
+
 
 
             conn.Close();
@@ -229,7 +231,6 @@ namespace Benchmark_15.Models
             }
             finally { conn.Close(); }
         }
-
         public static void Modifica(Prenotazione s, int Cliente)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionDB"].ConnectionString.ToString();

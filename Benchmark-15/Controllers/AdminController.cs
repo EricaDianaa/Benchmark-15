@@ -208,7 +208,6 @@ namespace Benchmark_15.Controllers
             }
             return RedirectToAction("SelectPrenotazione", "Admin");
         }
-
         public ActionResult Editservizio(int Id)
         {
             Servizi.ListPrenotazione.Clear();
@@ -245,6 +244,12 @@ namespace Benchmark_15.Controllers
                 }
             }
             return RedirectToAction("SelectCamere", "Admin");
+        }
+
+        public ActionResult ChechOut()
+        {
+
+            return View();
         }
 
     }

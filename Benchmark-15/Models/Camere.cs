@@ -11,6 +11,7 @@ namespace Benchmark_15.Models
     {
         public int IdCamera { get; set; }
         public string Descrizione { get; set; }
+        public string NomeCamera { get; set; }
         public string Tipologia { get; set; }
         public int IdPrenotaz { get; set; }
 
@@ -31,6 +32,7 @@ namespace Benchmark_15.Models
             {
                   Camere c = new Camere();
                 c.IdCamera = Convert.ToInt16(sqlreader1["IdCamera"]);
+                c.NomeCamera = sqlreader1["Nome"].ToString();
                 c.Descrizione = sqlreader1["Descrizione"].ToString();
                 c.Tipologia = sqlreader1["Tipologia"].ToString();
                 ListCamere.Add(c);
@@ -51,9 +53,10 @@ namespace Benchmark_15.Models
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = "INSERT INTO Camere VALUES(@Descrizione,@Tipologia)";
+                cmd.CommandText = "INSERT INTO Camere VALUES(@Descrizione,@Tipologia,@Nome)";
                 cmd.Parameters.AddWithValue("Descrizione", c.Descrizione);
                 cmd.Parameters.AddWithValue("Tipologia", c.Tipologia);
+                cmd.Parameters.AddWithValue("Nome", c.NomeCamera);
 
                 int inserimentoEffettuato = cmd.ExecuteNonQuery();
 
@@ -69,18 +72,18 @@ namespace Benchmark_15.Models
             }
             finally { conn.Close(); }
         }
-
         public static void Modifica(Camere c)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionDB"].ConnectionString.ToString();
             SqlConnection conn2 = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn2;
-            cmd.CommandText = "UPDATE Camere SET Descrizione=@Descrizione,Tipologia=@Tipologia  where IdCamera=@id";
+            cmd.CommandText = "UPDATE Camere SET Descrizione=@Descrizione,Tipologia=@Tipologia,Nome=@Nome  where IdCamera=@id";
 
             cmd.Parameters.AddWithValue("id", HttpContext.Current.Request.QueryString["Id"]);
             cmd.Parameters.AddWithValue("Descrizione", c.Descrizione);
             cmd.Parameters.AddWithValue("Tipologia", c.Tipologia);
+            cmd.Parameters.AddWithValue("Nome", c.NomeCamera);
 
             conn2.Open();
 
