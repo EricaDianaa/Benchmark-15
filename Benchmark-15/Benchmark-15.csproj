@@ -197,6 +197,11 @@
     <Content Include="Views\Admin\EditCamera.cshtml" />
     <Content Include="Views\Admin\EditPrenotazioni.cshtml" />
     <Content Include="Views\Admin\Editservizio.cshtml" />
+    <Content Include="Views\Admin\Checkout.cshtml" />
+    <Content Include="Views\Admin\SelectPreno.cshtml" />
+    <Content Include="Views\Admin\SelectTotale.cshtml" />
+    <Content Include="Views\Admin\CercaPrenotazione.cshtml" />
+    <Content Include="Views\Admin\Query.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

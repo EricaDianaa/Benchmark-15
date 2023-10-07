@@ -40,6 +40,7 @@ namespace Benchmark_15.Controllers
         public ActionResult CreatePrenotazione()
         {
             Prenotazione.ListCamere.Clear();
+            Prenotazione.DropdownCamere.Clear();
             Prenotazione.SelectCamera();
             Prenotazione.Dropdown1();
             ViewBag.drop2 = Prenotazione.DropdownCamere;
@@ -53,6 +54,7 @@ namespace Benchmark_15.Controllers
         public ActionResult CreatePrenotazione(Prenotazione p, int Cliente,int Camera)
         {
             Prenotazione.ListCamere.Clear();
+            Prenotazione.DropdownCamere.Clear();
             Prenotazione.SelectCamera();
             Prenotazione.Dropdown1();
             ViewBag.drop2 = Prenotazione.DropdownCamere;
@@ -246,11 +248,43 @@ namespace Benchmark_15.Controllers
             return RedirectToAction("SelectCamere", "Admin");
         }
 
-        public ActionResult ChechOut()
+        //Checkout
+        public ActionResult Checkout()
         {
-
-            return View();
+            Servizi.ListServizi.Clear();
+            Servizi.SelectId();
+            return View(Servizi.ListServizi);
+        }
+        public ActionResult SelectPreno()
+        {
+            Prenotazione.ListPrenotazione.Clear();
+            Prenotazione.SelectP();
+            return PartialView(Prenotazione.ListPrenotazione);
+        }
+        public ActionResult SelectTotale()
+        {
+            Prenotazione.Totale1.Clear();
+           // Prenotazione.SelectP();
+            Prenotazione.SelectTotale();
+            return PartialView(Prenotazione.Totale1);
         }
 
+        //Query
+        public ActionResult Query()
+        {
+            return View();
+        }
+        public JsonResult CercaPrenotazione(Clienti c)
+        {
+            Prenotazione.ListPrenotazione.Clear();
+            Prenotazione.CercaPrenotazione(c);
+          return  Json(Prenotazione.ListPrenotazione);
+        }
+        public JsonResult PrenotazionePensioneC()
+        {
+            Prenotazione.ListPrenotazione.Clear();
+            Prenotazione.SelectPrenotazione();
+            return Json(Prenotazione.ListPrenotazione, JsonRequestBehavior.AllowGet);
+        }
     }
 }

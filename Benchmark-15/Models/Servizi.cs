@@ -16,6 +16,7 @@ namespace Benchmark_15.Models
         public DateTime Data { get; set; }
         public int Quantità { get; set; }
         public decimal Prezzo { get; set; }
+        public decimal Totale { get; set; }
        
         //TipoServizio
         public int IdTipo { get; set; }
@@ -89,6 +90,38 @@ namespace Benchmark_15.Models
 
             conn.Close();
         }
+        public static void SelectId()
+        {
+            string connection = ConfigurationManager.ConnectionStrings["ConnectionDB"]
+          .ConnectionString.ToString();
+            SqlConnection conn = new SqlConnection(connection);
+            SqlCommand cmd1 = new SqlCommand("select * from Servizi inner join TipoServizio on Servizi.IdServizio=TipoServizio.IdTipo where IdPrenotazioni=@id", conn);
+            SqlDataReader sqlreader1;
+            conn.Open();
+            cmd1.Parameters.AddWithValue("id", HttpContext.Current.Request.QueryString["Id"]);
+            sqlreader1 = cmd1.ExecuteReader();
+
+            while (sqlreader1.Read())
+            {
+                Servizi c = new Servizi();
+                c.IdServizio = Convert.ToInt16(sqlreader1["IdServizio"]);
+                c.IdPrenotazioni = Convert.ToInt16(sqlreader1["IdPrenotazioni"]);
+                c.Descrizione = Convert.ToInt16(sqlreader1["Descrizione"]);
+                c.Data = Convert.ToDateTime(sqlreader1["Data"]);
+                c.Quantità = Convert.ToInt16(sqlreader1["Quantità"]);
+                c.Prezzo = Convert.ToInt16(sqlreader1["Prezzo"]);
+                c.IdTipo = Convert.ToInt16(sqlreader1["IdTipo"]);
+                c.TipoServizi = sqlreader1["TipoServizio"].ToString();
+                ListServizi.Add(c);
+
+            }
+
+
+            conn.Close();
+        }
+
+
+
         public static void Insert(Servizi s, string messaggio,int TipoServizio)
         {
             string connection = ConfigurationManager.ConnectionStrings["ConnectionDB"]

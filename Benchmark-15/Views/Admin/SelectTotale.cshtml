@@ -1,0 +1,9 @@
+﻿@using Benchmark_15.Models
+
+
+@foreach (Prenotazione c in Model)
+{
+    <p>Totale Servizi: @c.TotaleServizi</p>
+    <p>Totale Prenotazioni:@c.Totaleprenotazioni</p>
+    <p>Totale complessivo: @c.Tot</p>
+}

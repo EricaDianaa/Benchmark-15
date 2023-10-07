@@ -10,12 +10,7 @@
     <thead>
         <tr>
             <th>IdPrenotazione</th>
-            <th scope="col">Descrizione</th>
-            <th scope="col">Tipologia</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Cognome</th>
-            <th>DataPrenotazione</th>
-            <th>Anno</th>
+            <th>IdCamera</th>
             <th>Dal</th>
             <th>Al</th>
             <th>Caparra</th>
@@ -30,25 +25,20 @@
         <tbody>
             <tr>
                 <td>@c.IdPrenotazione</td>
-                <td>@c.Descrizione</td>
-                <td>@c.Tipologia</td>
-                <td>@c.Nome</td>
-                <td>@c.Cognome</td>
-                <td>@c.Data1</td>
-                <td>@c.Anno</td>
-                <td>@c.Data2</td>
-                <td>@c.Data3</td>
+                <td>@c.IdCamera</td>
+                <td>@c.Dal</td>
+                <td>@c.Al</td>
                 <td>@c.Caparra</td>
                 <td>@c.Tariffa</td>
                 <td>@c.MezzaPensione</td>
                 <td>@c.PensioneCompleta</td>
                 <td>@c.PrimaColazione</td>
                 <td><a href="EditPrenotazioni?Id=@c.IdPrenotazione">Modifica</a></td>
-                <td><a href="Checkout?Id=@c.IdPrenotazione&IdS=@c.IdPrenotazioni">Checkout</a></td>
+                <td><a href="Checkout?Id=@c.IdPrenotazione">Checkout</a></td>
             </tr>
 
         </tbody>
     }
 </table>
 
-<a href="CreatePrenotazione">Aggiungi prenotazione</a>
+
